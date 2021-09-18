@@ -138,6 +138,7 @@ function insertTable(list) {
 // function createTable(tbody, list) {
 function createTable(list) {
   const insertTable = document.querySelector('#insertTable');
+
   var table = document.createElement('table');
   table.id = 'tableCreate';
 
@@ -182,8 +183,10 @@ function createTable(list) {
 
   thead.appendChild(thtr);
 
+  var num = 1;
   list.forEach(function(items) {
     var tr = document.createElement('tr');
+    num % 2 === 0 ? tr.classList.add('odd') : tr.classList.add('honest');// Раскрасить чётные/нечётные строки в разные цвета
     var tdId = document.createElement('td');
     var tdCreateDate = document.createElement('td');
     var tdCreateTime = document.createElement('td');
@@ -209,6 +212,7 @@ function createTable(list) {
     tr.appendChild(tdYear);
 
     tbody.appendChild(tr);
+    num++;
   });
 }
 
