@@ -1,0 +1,69 @@
+@charset "utf-8";
+/* CSS Документ */
+/* Для всех элементов страницы внутренние и внешние отступы делаем = 0 */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Для списков отменим маркер*/
+ul {
+    list-style: none;
+}
+
+body {
+    background: #fff;
+    font: 14px/1.43 Arial, Helvetica, sans-serif;
+}
+
+div {
+    margin: 5px 2px; /* Отступы снаружи */
+    padding: 2px; /* Отступы внутри */
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th {
+    padding: 5px;
+    border: 1px solid maroon;
+    text-align: center;
+}
+
+td {
+    padding: 5px;
+    border: 1px solid maroon;
+    text-align: left;
+}
+
+h3 {
+    color: red;
+}
+
+.pad-left {
+    padding-left: 5px;
+}
+
+.center {
+    text-align: center;
+}
+
+.wrap {
+    color: blue;
+    background-color: aquamarine;
+}
+
+.toggle {
+    color: yellow;
+    background-color: coral;
+}
+
+
+
+
+
+
+
+
+

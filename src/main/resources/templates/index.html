@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<div th:replace="fragments/header :: header-css"/>
+<!--Так тоже работает-->
+<!--<link rel="stylesheet" type="text/css" th:href="@{/css/main.css}">-->
+<!--<script type="text/javascript" th:src="@{/js/index.js}"></script>-->
+<!--Не работает-->
+<!--<link rel="icon" type="image/ico" th:href="@{/img/favicon.ico}"/>-->
+<body>
+<div th:replace="fragments/header :: header"/>
+<div class="container">
+    <p>Проба</p>
+    <p>Щёлкните по документу для запуска обработчика.</p>
+    <button type="submit" id="btn">Жми меня, чем хочешь!</button>
+</div>
+<div th:if="${not #lists.isEmpty(notes)}">
+    <h3>Таблица Note</h3>
+    <table cellspacing="0" border="1" cellpadding="0" width="1000">
+        <tr>
+            <th class="center">№</th>
+            <th class="center">Дата 1</th>
+            <th class="center">Время 1</th>
+            <th class="center">Дата 2</th>
+            <th class="center">Время 2</th>
+            <th class="center">Заголовок</th>
+            <th class="center">Текст</th>
+            <th class="center">Пусто</th>
+        </tr>
+        <tr th:each="note : ${notes}">
+            <td th:text="${note.getId}" style="text-align: right">#</td>
+            <td th:text="${note.getCreateDate}" style="text-align: center">#</td>
+            <td th:text="${note.getCreateTime}" style="text-align: center">#</td>
+            <td th:text="${note.getLastSaveDate}" style="text-align: center">#</td>
+            <td th:text="${note.getLastSaveTime}" style="text-align: center">#</td>
+            <td th:text="${note.getHeading}" class="pad-left">#</td>
+            <td th:text="${note.getRecording}" class="pad-left">#</td>
+            <td ></td>
+        </tr>
+    </table>
+</div>
+
+<div th:if="${not #lists.isEmpty(books)}">
+    <h3>Таблица Book</h3>
+    <table cellspacing="0" border="1" cellpadding="0" width="1000">
+        <tr th:each="book : ${books}">
+            <td th:text="${book.getId}" style="text-align: right">#</td>
+            <td th:text="${book.createDate}" style="text-align: center">#</td>
+            <td th:text="${book.getCreateTime}" style="text-align: center">#</td>
+            <td th:text="${book.getLastSaveDate}" style="text-align: center">#</td>
+            <td th:text="${book.getLastSaveTime}" style="text-align: center">#</td>
+            <td th:text="${book.getName}" class="pad-left">#</td>
+            <td th:text="${book.year}" class="pad-left">#</td>
+            <td ></td>
+        </tr>
+    </table>
+</div>
+
+<div th:if="${book}">
+    <p th:text="${book}"></p><!--Book{id=1, createDateTime=2021-07-24T21:10:03, lastSaveDateTime=2021-07-25T04:10:03, name='Имя_Book_0', year=2000}-->
+    <p th:text="${book.createDateTime}"></p><!--2021-07-24T21:11:53-->
+</div>
+
+<br>
+<div>
+    <h3>Ввод текста для тестирования Ajax</h3>
+    <p id="ttt">Текст для проверки</p>
+    <button id="posttest">Ajax POST</button>
+    <button id="gettest">Ajax GET</button>
+    <button id="jsontest">Ajax Json</button>
+</div>
+
+<div id="insertTable">
+
+</div>
+
+<div>
+    <div class="box">Рассветка текста 1</div>
+    <div class="box">Рассветка текста 2</div>
+    <div class="box">Рассветка текста 3</div>
+    <button id="color">Расскрась</button>
+    <button id="but1">Insert Style</button>
+    <button id="but2">Remove Style</button>
+    <button id="but3">Toggle Style</button>
+</div>
+
+
+
+
+
+
+
+
+
+
+<br>
+<div th:replace="fragments/footer :: footer"></div>
+
+</body>
+</html>
