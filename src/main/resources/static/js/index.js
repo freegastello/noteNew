@@ -1,17 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-  // Использование: $('.box');
-  var $ = function(element) {
-    return document.querySelectorAll(element);
-  };
-
-
-
-
-
-
-
-
-
 
 // Щёлкни по любой части экрана
   addEventListener("click", function () {

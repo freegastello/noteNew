@@ -2,7 +2,7 @@ package com.glushkoproduction.note2.controller;
 
 import com.glushkoproduction.note2.Service.BookService;
 import com.glushkoproduction.note2.dto.ModelListBook;
-import com.glushkoproduction.note2.entity.Book;
+import com.glushkoproduction.note2.dto.RequestForFormDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,11 +18,29 @@ public class BookRestController {
         this.bookService = bookService;
     }
 
-    // Ajax POST Json запрос
+    // Ajax POST запрос
     @PostMapping("/jsontest")
     public List<ModelListBook> jsonTest() {
         return bookService.findAll();
     }
+
+    // Ajax POST запрос
+    @PostMapping("/formTestAttr")
+    public String formTestAttr(RequestForFormDTO request) {
+        System.out.println(request.getNum());
+        System.out.println(request.getYear());
+        System.out.println(request.getName());
+
+        return "OK";
+    }
+
+
+//    @PostMapping("/jsonTestAttr/{num}")
+//    public String jsonTestAttr(@PathVariable String num, Model model) {
+//        model.addAttribute("get", 1);
+//        return "index";
+//    }
+
 
 //    @GetMapping("/")
 //    public ModelAndView testjs(ModelAndView modelAndView) {
