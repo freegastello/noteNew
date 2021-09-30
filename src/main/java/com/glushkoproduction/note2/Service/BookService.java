@@ -2,6 +2,7 @@ package com.glushkoproduction.note2.Service;
 
 import com.glushkoproduction.note2.dto.ModelListBook;
 import com.glushkoproduction.note2.entity.Book;
+import com.glushkoproduction.note2.entity.BookRecord;
 
 import java.util.List;
 

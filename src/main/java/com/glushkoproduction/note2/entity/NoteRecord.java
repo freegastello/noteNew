@@ -1,15 +1,24 @@
 package com.glushkoproduction.note2.entity;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
-public class Note {
+@Entity
+@Table(name = "note")
+public class NoteRecord {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column(name = "CREATE_DATE_TIME")
     private LocalDateTime createDateTime;
+    @Column(name = "LAST_SAVE_DATE_TIME")
     private LocalDateTime lastSaveDateTime;
+    @Column(name = "HEADING")
     private String heading;
+    @Column(name = "RECORDING")
     private String recording;
 
-    public Note() {
+    public NoteRecord() {
     }
 
     public long getId() {

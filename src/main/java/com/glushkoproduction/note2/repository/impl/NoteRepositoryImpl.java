@@ -1,6 +1,6 @@
 package com.glushkoproduction.note2.repository.impl;
 
-import com.glushkoproduction.note2.entity.Note;
+import com.glushkoproduction.note2.entity.NoteRecord;
 import com.glushkoproduction.note2.repository.NoteRepository;
 import org.springframework.stereotype.Repository;
 
@@ -17,24 +17,28 @@ import java.util.List;
 @Repository
 @Transactional
 public class NoteRepositoryImpl implements NoteRepository {
-    @PersistenceContext
-    private EntityManager em;
+//    @PersistenceContext
+    private final EntityManager em;
+
+    public NoteRepositoryImpl(EntityManager em) {
+        this.em = em;
+    }
 
     @Override
-    public List<Note> myAll() {
+    public List<NoteRecord> myAll() {
         CriteriaBuilder cb = em.getCriteriaBuilder();
-        CriteriaQuery<Note> criteria = cb.createQuery(Note.class);
-        Root<Note> root = criteria.from(Note.class);
+        CriteriaQuery<NoteRecord> criteria = cb.createQuery(NoteRecord.class);
+        Root<NoteRecord> root = criteria.from(NoteRecord.class);
         criteria.select(root).where();
         return em.createQuery(criteria).getResultList();
     }
 
     @Override
-    public List<Note> myFindById(long id) {
+    public List<NoteRecord> myFindById(long id) {
         List<Predicate> predicates = new ArrayList<>();
         CriteriaBuilder cb = em.getCriteriaBuilder();
-        CriteriaQuery<Note> criteria = cb.createQuery(Note.class);
-        Root<Note> root = criteria.from(Note.class);
+        CriteriaQuery<NoteRecord> criteria = cb.createQuery(NoteRecord.class);
+        Root<NoteRecord> root = criteria.from(NoteRecord.class);
 
         predicates.add(cb.equal(root.get("id"), id));
 
@@ -46,8 +50,8 @@ public class NoteRepositoryImpl implements NoteRepository {
     }
 
     @Override
-    public void myAdd(Note note) {
-        em.persist(note);
+    public void myAdd(NoteRecord nr) {
+        em.persist(nr);
     }
 
 }

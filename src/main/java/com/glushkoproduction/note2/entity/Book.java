@@ -1,21 +1,12 @@
 package com.glushkoproduction.note2.entity;
 
-import javax.persistence.*;
 import java.time.LocalDateTime;
 
-@Entity
-@Table(name = "book")
 public class Book {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Column(name = "CREATE_DATE_TIME")
     private LocalDateTime createDateTime;
-    @Column(name = "LAST_SAVE_DATE_TIME")
     private LocalDateTime lastSaveDateTime;
-    @Column(name = "NAME")
     private String name;
-    @Column(name = "YEAR")
     private int year;
 
     public Book() {
