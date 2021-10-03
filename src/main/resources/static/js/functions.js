@@ -1,18 +1,18 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-  document.querySelector('#color').addEventListener('mousedown', () => {
+  document.querySelector('#color').addEventListener('mousedown', function () {
     printForEachElement();
   });
 
-  document.querySelector('#but1').addEventListener('mousedown', () => {
+  document.querySelector('#but1').addEventListener('mousedown', function () {
     insertStyle();
   });
 
-  document.querySelector('#but2').addEventListener('mousedown', () => {
+  document.querySelector('#but2').addEventListener('mousedown', function () {
     removeStyle();
   });
 
-  document.querySelector('#but3').addEventListener('mousedown', () => {
+  document.querySelector('#but3').addEventListener('mousedown', function () {
     toggleStyle();
   });
 
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var form = document.querySelector("#formtest");
   form.addEventListener("submit", function(event) {
     // Создание объекта:
-    var obj = new Object();
+    var obj = {};
     obj.num = form.elements.num.value;
     obj.year = form.elements.year.value;
     obj.name = form.elements.name.value;

@@ -1,15 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
-
-<div th:replace="fragments/header :: header-css"/>
-<!--Так тоже работает-->
-<!--<link rel="stylesheet" type="text/css" th:href="@{/css/main.css}">-->
-<!--<script type="text/javascript" th:src="@{/js/index.js}"></script>-->
-<!--Не работает-->
-<!--<link rel="icon" type="image/ico" th:href="@{/img/favicon.ico}"/>-->
+<link rel="stylesheet" th:href="@{/../../css/main.css}"/>
+<script type="text/javascript" th:src="@{/../../js/index.js}"></script>
+<script type="text/javascript" th:src="@{/../../js/functions.js}"></script>
 <body>
-<div th:replace="fragments/header :: header"/>
+<div th:insert="fragments/header :: header"/>
 <div class="container">
     <p>Проба</p>
     <p>Щёлкните по документу для запуска обработчика.</p>
@@ -58,8 +54,8 @@
 </div>
 
 <div th:if="${book}">
-    <p th:text="${book}"></p><!--Book{id=1, createDateTime=2021-07-24T21:10:03, lastSaveDateTime=2021-07-25T04:10:03, name='Имя_Book_0', year=2000}-->
-    <p th:text="${book.createDateTime}"></p><!--2021-07-24T21:11:53-->
+    <p th:text="${book}"></p>
+    <p th:text="${book.createDateTime}"></p>
 </div>
 
 <br>
@@ -96,15 +92,6 @@
     <button id="but2">Remove Style</button>
     <button id="but3">Toggle Style</button>
 </div>
-
-
-
-
-
-
-
-
-
 
 <br>
 <div th:replace="fragments/footer :: footer"></div>
