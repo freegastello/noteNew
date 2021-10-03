@@ -46,14 +46,13 @@ function sendForm(obj) {
   const params = "num=" + obj.num + "&year=" + obj.year + "&name=" + obj.name;
   request.open("POST", url, true);
   request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  request.addEventListener("readystatechange", () => {
+  request.addEventListener("readystatechange", function() {
     if (request.readyState === 4 && request.status === 200) {
       console.log(request.responseText);
     }
   });
   request.send(params);
 }
-
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
