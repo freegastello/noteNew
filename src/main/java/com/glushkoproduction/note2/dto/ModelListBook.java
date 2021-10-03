@@ -8,6 +8,7 @@ public class ModelListBook {
     private String lastSaveTime;
     private String name;
     private String year;
+    private int deleted;
 
     public ModelListBook() {
     }
@@ -68,6 +69,14 @@ public class ModelListBook {
         this.year = year;
     }
 
+    public int getDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(int deleted) {
+        this.deleted = deleted;
+    }
+
     @Override
     public String toString() {
         return "ModelListBook{" +
@@ -78,6 +87,7 @@ public class ModelListBook {
                 ", lastSaveTime='" + lastSaveTime + '\'' +
                 ", name='" + name + '\'' +
                 ", year='" + year + '\'' +
+                ", deleted=" + deleted +
                 '}';
     }
 }

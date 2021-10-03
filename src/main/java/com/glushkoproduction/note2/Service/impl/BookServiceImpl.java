@@ -2,8 +2,8 @@ package com.glushkoproduction.note2.Service.impl;
 
 import com.glushkoproduction.note2.Service.BookService;
 import com.glushkoproduction.note2.dto.ModelListBook;
-import com.glushkoproduction.note2.entity.Book;
-import com.glushkoproduction.note2.entity.BookRecord;
+import com.glushkoproduction.note2.model.Book;
+import com.glushkoproduction.note2.model.entity.BookRecord;
 import com.glushkoproduction.note2.repository.BookRepository;
 import com.glushkoproduction.note2.utils.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,6 +50,7 @@ public class BookServiceImpl implements BookService {
             modelBook.setLastSaveTime(DateUtil.localDateTimeToStringTime(book.getLastSaveDateTime()));
             modelBook.setName(book.getName());
             modelBook.setYear(String.valueOf(book.getYear()));
+            modelBook.setDeleted(book.getDeleted());
             modelListBooks.add(modelBook);
         }
         return modelListBooks;
@@ -62,6 +63,7 @@ public class BookServiceImpl implements BookService {
             book.setLastSaveDateTime(bookRecord.getLastSaveDateTime());
             book.setName(bookRecord.getName());
             book.setYear(bookRecord.getYear());
+            book.setDeleted(bookRecord.getDeleted());
         return book;
     }
 
@@ -74,6 +76,7 @@ public class BookServiceImpl implements BookService {
             book.setLastSaveDateTime(b.getLastSaveDateTime());
             book.setName(b.getName());
             book.setYear(b.getYear());
+            book.setDeleted(b.getDeleted());
             bookList.add(book);
         }
         return bookList;
@@ -85,6 +88,7 @@ public class BookServiceImpl implements BookService {
             bookRecord.setLastSaveDateTime(book.getLastSaveDateTime());
             bookRecord.setName(book.getName());
             bookRecord.setYear(book.getYear());
+            bookRecord.setDeleted(book.getDeleted());
         return bookRecord;
     }
 
@@ -96,6 +100,7 @@ public class BookServiceImpl implements BookService {
             bookRecord.setLastSaveDateTime(b.getLastSaveDateTime());
             bookRecord.setName(b.getName());
             bookRecord.setYear(b.getYear());
+            bookRecord.setDeleted(b.getDeleted());
             bookRecordList.add(bookRecord);
         }
         return bookRecordList;

@@ -2,8 +2,8 @@ package com.glushkoproduction.note2.Service.impl;
 
 import com.glushkoproduction.note2.Service.NoteService;
 import com.glushkoproduction.note2.dto.ModelListNote;
-import com.glushkoproduction.note2.entity.Note;
-import com.glushkoproduction.note2.entity.NoteRecord;
+import com.glushkoproduction.note2.model.Note;
+import com.glushkoproduction.note2.model.entity.NoteRecord;
 import com.glushkoproduction.note2.repository.NoteRepository;
 import com.glushkoproduction.note2.utils.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,6 +50,7 @@ public class NoteServiceImpl implements NoteService {
             modelListNote.setLastSaveTime(DateUtil.localDateTimeToStringTime(n.getLastSaveDateTime()));
             modelListNote.setHeading(n.getHeading());
             modelListNote.setRecording(n.getRecording());
+            modelListNote.setDeleted(n.getDeleted());
             modelListNotes.add(modelListNote);
         }
         return modelListNotes;
@@ -61,6 +62,7 @@ public class NoteServiceImpl implements NoteService {
         note.setLastSaveDateTime(noteRecord.getLastSaveDateTime());
         note.setHeading(noteRecord.getHeading());
         note.setRecording(noteRecord.getRecording());
+        note.setDeleted(noteRecord.getDeleted());
         return note;
     }
 
@@ -73,6 +75,7 @@ public class NoteServiceImpl implements NoteService {
             note.setLastSaveDateTime(nr.getLastSaveDateTime());
             note.setHeading(nr.getHeading());
             note.setRecording(nr.getRecording());
+            note.setDeleted(nr.getDeleted());
             noteList.add(note);
         }
         return noteList;
@@ -84,6 +87,7 @@ public class NoteServiceImpl implements NoteService {
         nr.setLastSaveDateTime(note.getLastSaveDateTime());
         nr.setHeading(note.getHeading());
         nr.setRecording(note.getRecording());
+        nr.setDeleted(note.getDeleted());
         return nr;
     }
 
@@ -95,6 +99,7 @@ public class NoteServiceImpl implements NoteService {
             nr.setLastSaveDateTime(n.getLastSaveDateTime());
             nr.setHeading(n.getHeading());
             nr.setRecording(n.getRecording());
+            nr.setDeleted(n.getDeleted());
             nrList.add(nr);
         }
         return nrList;

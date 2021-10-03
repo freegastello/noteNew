@@ -1,11 +1,14 @@
-package com.glushkoproduction.note2.entity;
+package com.glushkoproduction.note2.model.entity;
+
+import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "note")
-public class NoteRecord {
+@Where(clause = "DELETED = 0")
+@Table(name = "book")
+public class BookRecord {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -13,12 +16,14 @@ public class NoteRecord {
     private LocalDateTime createDateTime;
     @Column(name = "LAST_SAVE_DATE_TIME")
     private LocalDateTime lastSaveDateTime;
-    @Column(name = "HEADING")
-    private String heading;
-    @Column(name = "RECORDING")
-    private String recording;
+    @Column(name = "NAME")
+    private String name;
+    @Column(name = "YEAR")
+    private int year;
+    @Column(name = "DELETED")
+    private int deleted;
 
-    public NoteRecord() {
+    public BookRecord() {
     }
 
     public long getId() {
@@ -45,30 +50,39 @@ public class NoteRecord {
         this.lastSaveDateTime = lastSaveDateTime;
     }
 
-    public String getHeading() {
-        return heading;
+    public String getName() {
+        return name;
     }
 
-    public void setHeading(String heading) {
-        this.heading = heading;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getRecording() {
-        return recording;
+    public int getYear() {
+        return year;
     }
 
-    public void setRecording(String recording) {
-        this.recording = recording;
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public int getDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(int deleted) {
+        this.deleted = deleted;
     }
 
     @Override
     public String toString() {
-        return "Note{" +
+        return "Book{" +
                 "id=" + id +
                 ", createDateTime=" + createDateTime +
                 ", lastSaveDateTime=" + lastSaveDateTime +
-                ", heading='" + heading + '\'' +
-                ", recording='" + recording + '\'' +
+                ", name='" + name + '\'' +
+                ", year=" + year +
                 '}';
     }
+
 }

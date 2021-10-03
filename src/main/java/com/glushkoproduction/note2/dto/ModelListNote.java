@@ -8,6 +8,8 @@ public class ModelListNote {
     private String lastSaveTime;
     private String heading;
     private String recording;
+    private int deleted;
+
 
     public ModelListNote() {
     }
@@ -68,9 +70,17 @@ public class ModelListNote {
         this.recording = recording;
     }
 
+    public int getDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(int deleted) {
+        this.deleted = deleted;
+    }
+
     @Override
     public String toString() {
-        return "ModelList{" +
+        return "ModelListNote{" +
                 "id='" + id + '\'' +
                 ", createDate='" + createDate + '\'' +
                 ", createTime='" + createTime + '\'' +
@@ -78,6 +88,7 @@ public class ModelListNote {
                 ", lastSaveTime='" + lastSaveTime + '\'' +
                 ", heading='" + heading + '\'' +
                 ", recording='" + recording + '\'' +
+                ", deleted=" + deleted +
                 '}';
     }
 }

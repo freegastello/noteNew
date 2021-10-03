@@ -1,7 +1,7 @@
 package com.glushkoproduction.note2.Service;
 
 import com.glushkoproduction.note2.dto.ModelListNote;
-import com.glushkoproduction.note2.entity.Note;
+import com.glushkoproduction.note2.model.Note;
 
 import java.util.List;
 

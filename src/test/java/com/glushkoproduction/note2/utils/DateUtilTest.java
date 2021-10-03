@@ -1,6 +1,6 @@
 package com.glushkoproduction.note2.utils;
 
-import com.glushkoproduction.note2.entity.Book;
+import com.glushkoproduction.note2.model.Book;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;

@@ -2,8 +2,8 @@ package com.glushkoproduction.note2.config;
 
 import com.glushkoproduction.note2.Service.BookService;
 import com.glushkoproduction.note2.Service.NoteService;
-import com.glushkoproduction.note2.entity.Book;
-import com.glushkoproduction.note2.entity.Note;
+import com.glushkoproduction.note2.model.Book;
+import com.glushkoproduction.note2.model.Note;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -33,6 +33,7 @@ public class InitData {
             note.setLastSaveDateTime(createLocal.plusHours(num_7 + i));
             note.setHeading("Заголовок_" + i);
             note.setRecording("Много текста_0" + i);
+            note.setDeleted(0);
             noteService.myAdd(note);
         }
     }
@@ -46,6 +47,7 @@ public class InitData {
             book.setLastSaveDateTime(createLocal.plusHours(num_7 + i));
             book.setName("Имя_Book_" + i);
             book.setYear(num_2000 + i);
+            book.setDeleted(0);
             bookList.add(book);
         }
         bookService.saveAll(bookList);

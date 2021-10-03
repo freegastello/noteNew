@@ -1,6 +1,6 @@
 package com.glushkoproduction.note2.repository;
 
-import com.glushkoproduction.note2.entity.NoteRecord;
+import com.glushkoproduction.note2.model.entity.NoteRecord;
 
 import java.util.List;
 

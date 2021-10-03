@@ -1,15 +1,16 @@
-package com.glushkoproduction.note2.entity;
+package com.glushkoproduction.note2.model;
 
 import java.time.LocalDateTime;
 
-public class Book {
+public class Note {
     private long id;
-    private LocalDateTime createDateTime;
+    private LocalDateTime createDateTime = LocalDateTime.now();
     private LocalDateTime lastSaveDateTime;
-    private String name;
-    private int year;
+    private String heading;
+    private String recording;
+    private int deleted;
 
-    public Book() {
+    public Note() {
     }
 
     public long getId() {
@@ -36,31 +37,39 @@ public class Book {
         this.lastSaveDateTime = lastSaveDateTime;
     }
 
-    public String getName() {
-        return name;
+    public String getHeading() {
+        return heading;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setHeading(String heading) {
+        this.heading = heading;
     }
 
-    public int getYear() {
-        return year;
+    public String getRecording() {
+        return recording;
     }
 
-    public void setYear(int year) {
-        this.year = year;
+    public void setRecording(String recording) {
+        this.recording = recording;
+    }
+
+    public int getDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(int deleted) {
+        this.deleted = deleted;
     }
 
     @Override
     public String toString() {
-        return "Book{" +
+        return "Note{" +
                 "id=" + id +
                 ", createDateTime=" + createDateTime +
                 ", lastSaveDateTime=" + lastSaveDateTime +
-                ", name='" + name + '\'' +
-                ", year=" + year +
+                ", heading='" + heading + '\'' +
+                ", recording='" + recording + '\'' +
+                ", deleted=" + deleted +
                 '}';
     }
-
 }

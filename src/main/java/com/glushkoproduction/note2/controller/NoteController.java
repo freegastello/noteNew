@@ -4,7 +4,7 @@ import com.glushkoproduction.note2.Service.BookService;
 import com.glushkoproduction.note2.Service.NoteService;
 import com.glushkoproduction.note2.dto.ModelListBook;
 import com.glushkoproduction.note2.dto.ModelListNote;
-import com.glushkoproduction.note2.entity.Book;
+import com.glushkoproduction.note2.model.Book;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
