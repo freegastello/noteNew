@@ -1,6 +1,6 @@
 package com.glushkoproduction.note.controller;
 
-import com.glushkoproduction.note.Service.BookService;
+import com.glushkoproduction.note.service.BookService;
 import com.glushkoproduction.note.dto.ModelListBook;
 import com.glushkoproduction.note.dto.RequestForFormDTO;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,6 @@
-package com.glushkoproduction.note.Service.impl;
+package com.glushkoproduction.note.service.impl;
 
-import com.glushkoproduction.note.Service.BookService;
+import com.glushkoproduction.note.service.BookService;
 import com.glushkoproduction.note.dto.ModelListBook;
 import com.glushkoproduction.note.model.Book;
 import com.glushkoproduction.note.model.entity.BookRecord;

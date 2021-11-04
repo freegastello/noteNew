@@ -1,7 +1,7 @@
 package com.glushkoproduction.note.config;
 
-import com.glushkoproduction.note.Service.BookService;
-import com.glushkoproduction.note.Service.NoteService;
+import com.glushkoproduction.note.service.BookService;
+import com.glushkoproduction.note.service.NoteService;
 import com.glushkoproduction.note.model.Book;
 import com.glushkoproduction.note.model.Note;
 import org.springframework.beans.factory.annotation.Autowired;
