@@ -56,6 +56,13 @@ public class ExcelParser_3 {
             }
             list.add(dto);
         }
+
+        try {
+            workBook.close();
+        } catch (IOException e) {
+            throw new RuntimeException("ERROR. Ошибка закрытия WorkBook." + e.getMessage());
+        }
+
         return list;
     }
 }
