@@ -1,23 +1,58 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-  document.querySelector('#color').addEventListener('mousedown', () => {
+  document.querySelector('#color').addEventListener('mousedown', function () {
     printForEachElement();
   });
 
-  document.querySelector('#but1').addEventListener('mousedown', () => {
+  document.querySelector('#but1').addEventListener('mousedown', function () {
     insertStyle();
   });
 
-  document.querySelector('#but2').addEventListener('mousedown', () => {
+  document.querySelector('#but2').addEventListener('mousedown', function () {
     removeStyle();
   });
 
-  document.querySelector('#but3').addEventListener('mousedown', () => {
+  document.querySelector('#but3').addEventListener('mousedown', function () {
     toggleStyle();
   });
 
+  // Работа с FORM:
+  var form = document.querySelector("#formtest");
+  form.addEventListener("submit", function(event) {
+    // Создание объекта:
+    var obj = {};
+    obj.num = form.elements.num.value;
+    obj.year = form.elements.year.value;
+    obj.name = form.elements.name.value;
+
+    form.elements.num.value  = "";
+    form.elements.year.value = "";
+    form.elements.name.value = "";
+
+    event.preventDefault();
+    sendForm(obj);
+  });
 
 }, false);
+
+
+function sendForm(obj) {
+  console.log("sendForm num  = " + obj.num);
+  console.log("sendForm year = " + obj.year);
+  console.log("sendForm name = " + obj.name);
+
+  const request = new XMLHttpRequest();
+  const url = "/formTestAttr";
+  const params = "num=" + obj.num + "&year=" + obj.year + "&name=" + obj.name;
+  request.open("POST", url, true);
+  request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  request.addEventListener("readystatechange", function() {
+    if (request.readyState === 4 && request.status === 200) {
+      console.log(request.responseText);
+    }
+  });
+  request.send(params);
+}
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -44,17 +79,17 @@ function insertTable(list) {
   // list.forEach(e => console.log(e));// В консоль выводит идеально
 
 
-  // var newElem = document.createElement('table');
+  // const newElem = document.createElement('table');
   // newElem.id = 'myTable';
   // // insTable.append(newElem);
   //
-  // var newRow;
-  // for (var i = 0; i < list.length; i++) {
+  // const newRow;
+  // for (const i = 0; i < list.length; i++) {
   //   debugger;
   //   newRow = newElem.insertRow(i);
-  //   for (var j = 0; j < 1; j++) {
+  //   for (const j = 0; j < 1; j++) {
   //     debugger;
-  //     var newCell = newRow.insertCell(i);
+  //     const newCell = newRow.insertCell(i);
   //     newCell.innerHTML = list[i].id;
   //     newCell.innerHTML = list[i].name;
   //   }
@@ -62,12 +97,12 @@ function insertTable(list) {
   // insTable.append(newElem);
 
 
-  // var tbody = document.querySelector('myTable');
+  // const tbody = document.querySelector('myTable');
 
   // let html = '<table>';
-  // for(var i = 0; i < list.length; i++)
+  // for(const i = 0; i < list.length; i++)
   // {
-  //   var tr = document.createElement('tr');
+  //   const tr = document.createElement('tr');
   //   tr.innerHTML =
   //     '<td>' + list[i].id + '</td>' +
   //     '<td>' + list[i].name + '</td>';
@@ -79,11 +114,11 @@ function insertTable(list) {
 
 
   // // Создание таблицы - работает:
-  // var newElem = document.createElement('table');
-  // var newRow = newElem.insertRow(0);
-  // var newCell = newRow.insertCell(0);
+  // const newElem = document.createElement('table');
+  // const newRow = newElem.insertRow(0);
+  // const newCell = newRow.insertCell(0);
   // newCell.innerHTML = list[0].name;
-  // var newCell = newRow.insertCell(1);
+  // const newCell = newRow.insertCell(1);
   // newCell.innerHTML = list[1].name;
   // insTable.append(newElem);
 
@@ -137,33 +172,40 @@ function insertTable(list) {
 
 // function createTable(tbody, list) {
 function createTable(list) {
+  //Сначала удалить предыдущую таблицу:
+  const elem = document.getElementById("tableCreate");
+  if (elem) {
+    elem.parentNode.removeChild(elem);
+    console.log('Произошло удаление');
+  }
+
+  //Теперь создаём элементы:
   const insertTable = document.querySelector('#insertTable');
 
-  var table = document.createElement('table');
+  const table = document.createElement('table');
   table.id = 'tableCreate';
 
-  // table.setAttribute('border', '5');//Можно и так добавлять атрибуты. Но лучше через CSS
-  //table.border=5;                    //Можно и так добавлять атрибуты. Но лучше через CSS
+  // table.setAttribute('border', '5');//Можно так добавлять атрибуты. Но лучше через CSS
+  //table.border = 5;                  //Можно и так добавлять атрибуты. Но лучше через CSS
 
-  var thead = document.createElement('thead');
+  const thead = document.createElement('thead');
   thead.setAttribute('id','theadBook');
 
-  var tbody = document.createElement('tbody');
+  const tbody = document.createElement('tbody');
   tbody.setAttribute('id','contayner');
 
   table.append(thead);
   table.append(tbody);
   insertTable.append(table);
 
-
-  var thtr = document.createElement('tr');
-  var thId = document.createElement('td');
-  var thCreateDate = document.createElement('td');
-  var thCreateTime = document.createElement('td');
-  var thLastSaveDate = document.createElement('td');
-  var thLastSaveTime = document.createElement('td');
-  var thName = document.createElement('td');
-  var thYear = document.createElement('td');
+  const thtr = document.createElement('tr');
+  const thId = document.createElement('td');
+  const thCreateDate = document.createElement('td');
+  const thCreateTime = document.createElement('td');
+  const thLastSaveDate = document.createElement('td');
+  const thLastSaveTime = document.createElement('td');
+  const thName = document.createElement('td');
+  const thYear = document.createElement('td');
 
   thId.innerText = 'id';
   thCreateDate.innerText = 'Дата открытия';
@@ -185,15 +227,15 @@ function createTable(list) {
 
   var num = 1;
   list.forEach(function(items) {
-    var tr = document.createElement('tr');
+    const tr = document.createElement('tr');
     num % 2 === 0 ? tr.classList.add('odd') : tr.classList.add('honest');// Раскрасить чётные/нечётные строки в разные цвета
-    var tdId = document.createElement('td');
-    var tdCreateDate = document.createElement('td');
-    var tdCreateTime = document.createElement('td');
-    var tdLastSaveDate = document.createElement('td');
-    var tdLastSaveTime = document.createElement('td');
-    var tdName = document.createElement('td');
-    var tdYear = document.createElement('td');
+    const tdId = document.createElement('td');
+    const tdCreateDate = document.createElement('td');
+    const tdCreateTime = document.createElement('td');
+    const tdLastSaveDate = document.createElement('td');
+    const tdLastSaveTime = document.createElement('td');
+    const tdName = document.createElement('td');
+    const tdYear = document.createElement('td');
 
     tdId.innerText = items.id;
     tdCreateDate.innerText = items.createDate;

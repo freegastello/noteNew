@@ -1,17 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-  // Использование: $('.box');
-  var $ = function(element) {
-    return document.querySelectorAll(element);
-  };
-
-
-
-
-
-
-
-
-
 
 // Щёлкни по любой части экрана
   addEventListener("click", function () {
@@ -22,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
 //01.Тестирование отправки GET AJAX запроса
 // Данные для передачи на сервер допустим id товаров и его количество
   const button = document.querySelector('#gettest');
-  button.addEventListener('mousedown', () => {
+  button.addEventListener('mousedown', function() {
     let id_product  = 111;
     let qty_product = 222;
 // Создаём объект класса XMLHttpRequest
@@ -37,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
 // Указываем заголовки для сервера, говорим что тип данных, - контент который мы хотим получить должен быть не закодирован.
     request.setRequestHeader('Content-Type', 'application/x-www-form-url');
 // Здесь мы получаем ответ от сервера на запрос, лучше сказать ждем ответ от сервера
-    request.addEventListener("readystatechange", () => {
+    request.addEventListener("readystatechange", function() {
       /*   request.readyState - возвращает текущее состояние объекта XHR(XMLHttpRequest) объекта,
       бывает 4 состояния 4-е состояние запроса - операция полностью завершена, пришел ответ от сервера,
       вот то что нам нужно request.status это статус ответа,
@@ -54,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   //02.Тестирование отправки POST AJAX запроса
   const button2 = document.querySelector('#posttest');
-  button2.addEventListener('mousedown', () => {
+  button2.addEventListener('mousedown', function() {
     let id_post_1 = "321";
     let id_post_2 = "456";
     // Создаем экземпляр класса XMLHttpRequest
@@ -69,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
     request.open("POST", url, true);
     // В заголовке говорим что тип передаваемых данных закодирован.
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    request.addEventListener("readystatechange", () => {
+    request.addEventListener("readystatechange", function() {
       if (request.readyState === 4 && request.status === 200) {
         console.log(request.responseText);
       }
@@ -83,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
   //03.Тестирование отправки Json AJAX запроса - шляпа, лучше просто POST зпрос отправлять
   // Данные для передачи на сервер например	id товаров и его количество
   const button3 = document.querySelector('#jsontest');
-  button3.addEventListener('mousedown', () => {
+  button3.addEventListener('mousedown', function() {
     let id_product  = 999;
     let qty_product = 777;
     // принцип	тот же самый что и у обычного POST	запроса
@@ -94,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // request.responseType = "json";
     request.open("POST", url, true);
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    request.addEventListener("readystatechange", () => {
+    request.addEventListener("readystatechange", function() {
       if (request.readyState === 4 && request.status === 200) {
         // let obj = request.response;// так всё выводит сплошным текстом
         const list = eval("(" + request.responseText + ")");// Обязательно обрабатывать!!!
