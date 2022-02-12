@@ -63,7 +63,7 @@ public class NoteController {
     // Ajax POST запрос
     @PostMapping("/posttest")
     public String postTest(String text, String twoparametr) {
-        System.out.println("posttest=" + text + ", " + twoparametr);//posttest=321, 456
+        System.out.println("text=" + text + ", twoparametr=" + twoparametr);//posttest=321, 456
         return "index";
     }
 

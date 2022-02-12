@@ -1,8 +1,9 @@
 package com.glushkoproduction.note.controller;
 
-import com.glushkoproduction.note.service.BookService;
+import com.glushkoproduction.note.dto.GsonRequestDTO;
 import com.glushkoproduction.note.dto.ModelListBook;
 import com.glushkoproduction.note.dto.RequestForFormDTO;
+import com.glushkoproduction.note.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,8 +21,15 @@ public class BookRestController {
 
     // Ajax POST запрос
     @PostMapping("/jsontest")
-    public List<ModelListBook> jsonTest() {
+    public List<ModelListBook> jsonTest(int id_product, int qty_product) {
+        System.out.println("id_product=" + id_product + ", qty_product=" + qty_product);
         return bookService.findAll();
+    }
+
+    @PostMapping("/objtest")
+    public String objTest(GsonRequestDTO dto) {
+        System.out.println("dto=" + dto.toString());
+        return "OK";
     }
 
     // Ajax POST запрос
